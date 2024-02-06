@@ -1,0 +1,3 @@
+[submodule "HCI.ClientApp"]
+	path = HCI.ClientApp
+	url = git@github.com:code-n-share/HealthCareApp.git
