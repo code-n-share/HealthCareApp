@@ -4,5 +4,6 @@ Install Docker ( https://docs.docker.com/install/ )
 - docker compose up
 
 
-Access UI : localhost:3000
-Access API : localhost:5217/swagger/index.html
+# UI & API Urls
+- Access UI : localhost:3000
+- Access API : localhost:5217/swagger/index.html
