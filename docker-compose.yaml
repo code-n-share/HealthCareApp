@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+
+  ui:
+    container_name: hci-helathcare-app
+    image: hci-helathcare-app
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # This allows CRA to hot reload over the file system barrier
+      - BROWSER=none
+      - NODE_ENV=development
+    build: 
+      context: ./HCI.ClientApp
+      dockerfile: Dockerfile
+      target: development
+    volumes: 
+      - ./HCI.ClientApp:/app  # Mount these as volumes so we can watch them. 
+      - /app/node_modules  # I think this was so it didn't overwrite or copy or something...
+    ports: 
+      - 3000:3000
+
+  api:
+    container_name: hci-helathcare-api
+    image: hci-helathcare-api
+    build:
+      context: ./HCI.HealthCare.API
+      dockerfile: Dockerfile
+    ports: 
+      - 5217:8080
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
